@@ -21,7 +21,7 @@ jobs:
       - name: "Check for changes"
         id: update-check
         run: |
-          git diff --quiet --exit-code || echo "::set-output name=updated::true"
+          git diff --quiet --exit-code || echo "updated=true" >> $GITHUB_OUTPUT
         continue-on-error: true
 
       - name: Create Pull Request
