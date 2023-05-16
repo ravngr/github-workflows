@@ -1,0 +1,33 @@
+---
+
+extends: default
+
+rules:
+  braces:
+    forbid: non-empty
+  brackets:
+    forbid: non-empty
+  comments:
+    require-starting-space: true
+    ignore-shebangs: true
+  comments-indentation: disable
+  document-start:
+    present: true
+  empty-lines:
+    max: 2
+  indentation:
+    spaces: 2
+  key-duplicates: {}
+  line-length:
+    max: 120
+  new-line-at-end-of-file: enable
+  new-lines:
+    type: unix
+  trailing-spaces: {}
+  truthy:
+    allowed-values:
+      - 'true'
+      - 'false'
+      - 'ON'
+      - 'OFF'
+    check-keys: false
