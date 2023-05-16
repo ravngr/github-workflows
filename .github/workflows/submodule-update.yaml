@@ -1,0 +1,41 @@
+---
+
+on:
+  workflow_call:
+
+
+jobs:
+  submodule-update:
+    name: "Update submodules and generate PR on changes"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout configuration"
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: "Update submodules"
+        run: |
+          git submodule update --init --recursive --remote
+
+      - name: "Check for changes"
+        id: update-check
+        run: |
+          git diff --quiet --exit-code || echo "::set-output name=updated::true"
+        continue-on-error: true
+        outputs:
+          updated: "${{ steps.update-check.outputs.updated }}"
+
+      - name: Create Pull Request
+        if: steps.update-check.outputs.updated == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "[submodule-update] Automated update"
+          branch: submodule-update
+          delete-branch: true
+          title: "[submodule-update] Automated update"
+          body: |
+            Automated submodule update by [submodule-update](https://github.com/ravngr/github-workflows) workflow.
+          labels: |
+            automated pr
+            submodule

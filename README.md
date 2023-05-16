@@ -24,6 +24,15 @@ jobs:
     uses: ravngr/github-workflows/.github/workflows/pre-commit.yaml@main
 ```
 
+### `submodule-update.yaml`
+Checks out repoisitory and updated submodules. When changes are found a PR is opened using [peter-evans/create-pull-request](https://github.com/peter-evans/create-pull-request).
+
+```yaml
+jobs:
+  call-submodule-update:
+    uses: ravngr/github-workflows/.github/workflows/submodule-update.yaml@main
+```
+
 ### `yamllint.yaml`
 Runs [yamllint](https://www.yamllint.com/) against repository files.
 
