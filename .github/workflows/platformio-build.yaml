@@ -21,6 +21,7 @@ on:
         description: 'If true firmware artefacts will be uploaded on completion'
         required: false
         default: false
+        type: boolean
 
 
 jobs:
