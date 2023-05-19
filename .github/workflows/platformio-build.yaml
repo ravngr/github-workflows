@@ -1,8 +1,6 @@
 ---
 
 name: "PlatformIO build workflow"
-author: "ravngr"
-description: "Execute a build using PlatofrmIO and optionally upload produced artefacts"
 
 
 on:

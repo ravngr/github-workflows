@@ -1,6 +1,6 @@
 ---
 
-name: "Repository CI"
+name: "Repository CI workflow"
 
 
 on:
