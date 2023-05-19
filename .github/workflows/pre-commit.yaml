@@ -1,6 +1,6 @@
 ---
 
-name: "pre-commit check workflow"
+name: "Verify pre-commit workflow"
 
 
 on:
