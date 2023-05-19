@@ -1,6 +1,8 @@
 # github-workflows
 Repository for shared GitHub Action workflows.
 
+[GitHub documentation](https://docs.github.com/en/actions/using-workflows/reusing-workflows).
+
 ## Workflows
 
 ### `platformio-build.yaml`
@@ -25,9 +27,13 @@ jobs:
 ```
 
 ### `submodule-update.yaml`
-Checks out repoisitory and updated submodules. When changes are found a PR is opened using [peter-evans/create-pull-request](https://github.com/peter-evans/create-pull-request).
+Checks out repoisitory and updated submodules. When changes are found a PR is opened using [peter-evans/create-pull-request](https://github.com/peter-evans/create-pull-request). Requires additional permissions to create PR.
 
 ```yaml
+permissions:
+  pull-requests: write
+  contents: write
+
 jobs:
   call-submodule-update:
     uses: ravngr/github-workflows/.github/workflows/submodule-update.yaml@main
