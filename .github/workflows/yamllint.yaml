@@ -1,5 +1,8 @@
 ---
 
+name: "yamllint workflow"
+
+
 on:
   workflow_call:
 

@@ -1,5 +1,8 @@
 ---
 
+name: "Git submodule update workflow"
+
+
 on:
   workflow_call:
 

@@ -1,5 +1,8 @@
 ---
 
+name: "pre-commit check workflow"
+
+
 on:
   workflow_call:
     inputs:

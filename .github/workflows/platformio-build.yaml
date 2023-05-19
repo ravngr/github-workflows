@@ -1,5 +1,8 @@
 ---
 
+name: "PlatformIO build workflow"
+
+
 on:
   workflow_call:
     inputs:
@@ -15,7 +18,7 @@ on:
 
 
 jobs:
-  platformio-build:
+  pio-build:
     name: "Build firmware using PlatformIO"
     runs-on: ubuntu-latest
     steps:
