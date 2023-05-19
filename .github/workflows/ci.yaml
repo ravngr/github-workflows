@@ -15,4 +15,5 @@ on:
 
 jobs:
   call-pre-commit:
+    name: "Call reusable pre-commit workflow"
     uses: ./.github/workflows/pre-commit.yaml
