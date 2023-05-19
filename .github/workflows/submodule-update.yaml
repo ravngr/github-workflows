@@ -5,6 +5,18 @@ name: "Git submodule update workflow"
 
 on:
   workflow_call:
+  inputs:
+    pr-branch:
+      description: 'PR branch name'
+      required: false
+      default: 'submodule-update'
+      type: string
+
+    pr-title:
+      description: 'PR title'
+      required: false
+      default: "[submodule-update] Automated update"
+      type: string
 
 
 jobs:
@@ -31,12 +43,12 @@ jobs:
         if: steps.update-check.outputs.updated == 'true'
         uses: peter-evans/create-pull-request@v5
         with:
-          commit-message: "[submodule-update] Automated update"
-          branch: submodule-update
+          commit-message: "[submodule-update] Automated submodule update"
+          branch: "${{ inputs.pr-branch }}"
           delete-branch: true
-          title: "[submodule-update] Automated update"
+          title: "${{ inputs.pr-title }}"
           body: |
-            Automated submodule update by [submodule-update](https://github.com/ravngr/github-workflows) workflow.
+            Automated submodule update via [submodule-update](https://github.com/ravngr/github-workflows) workflow.
           labels: |
             automated pr
             submodule

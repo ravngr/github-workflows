@@ -13,7 +13,7 @@ jobs:
   call-platformio-build:
     uses: ravngr/github-workflows/.github/workflows/platformio-build.yaml@main
     with:
-      pio-environment: <environment>
+      pio-environment: <env-name>
       upload-firmware: false
 ```
 
@@ -37,6 +37,9 @@ permissions:
 jobs:
   call-submodule-update:
     uses: ravngr/github-workflows/.github/workflows/submodule-update.yaml@main
+    with:
+      pr-branch: <branch>
+      pr-title: <title>
 ```
 
 ### `yamllint.yaml`
