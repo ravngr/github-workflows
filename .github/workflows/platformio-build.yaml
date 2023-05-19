@@ -17,6 +17,11 @@ on:
         required: true
         type: string
 
+      upload-firmware:
+        description: 'If true firmware artefacts will be uploaded on completion'
+        required: false
+        default: false
+
 
 jobs:
   pio-build:
@@ -39,3 +44,13 @@ jobs:
       - name: "Run build"
         run: |
           pio run -e "${{ inputs.pio-environment }}"
+
+      - name: "Upload firmware"
+        if: ${{ inputs.upload-firmware == 'true' }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware
+          path: |
+            "./.pio/build/${{ inputs.pio-environment }}/bootloader.*"
+            "./.pio/build/${{ inputs.pio-environment }}/firmware.*"
+            "./.pio/build/${{ inputs.pio-environment }}/project.checksum"
